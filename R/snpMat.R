@@ -16,6 +16,7 @@ snpMat <- function(vcffile){
   snp_gt <- snp@gt
   snp_gt <- snp_gt[,-1]
   snpMat <- t(snp_gt)
+  snpMat[is.na(snpMat)] <- "0/0"
   gdat_snp <- convertToNumeric(snpMat)
   info <- snpInfo(vcffile)
   snpNames <- info$ID
