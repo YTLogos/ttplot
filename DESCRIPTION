@@ -1,0 +1,19 @@
+Package: ttplot
+Title: Tao Yan's Plot Toolkit
+Version: 0.0.0
+Authors@R: 
+    person(given = "Tao",
+           family = "Yan",
+           role = c("aut", "cre"),
+           email = "tyan@zju.edu.cn")
+Description: Just some script I used in my PhD project, most of them are NOT stable enough.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    vcfR,
+    dplyr,
+    snpStats,
+    genetics,
+    LDheatmap
+RoxygenNote: 6.1.1
