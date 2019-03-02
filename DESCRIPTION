@@ -1,10 +1,7 @@
 Package: ttplot
 Title: Tao Yan's Plot Toolkit
 Version: 0.0.0
-Authors@R: person(given = "Tao",
-           family = "Yan",
-           role = c("aut", "cre"),
-           email = "tyan@zju.edu.cn")
+Authors@R: person(given = "Tao", family = "Yan", role = c("aut", "cre"), email = "tyan@zju.edu.cn")
 Description: Just some script I used in my PhD project, most of them are NOT stable enough.
 License: MIT + file LICENSE
 Encoding: UTF-8
