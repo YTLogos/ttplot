@@ -18,4 +18,5 @@ convertToNumeric <- function(snp_data){
   }
   rownames(genodata) <- rownames(snp_data)
   colnames(genodata) <- colnames(snp_data)
+  return(genodata)
 }

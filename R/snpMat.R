@@ -21,4 +21,5 @@ snpMat <- function(vcffile){
   snpNames <- info$ID
   colnames(gdat_snp) <- snpNames
   gdat_snp <- as(gdat_snp, "SnpMatrix")
+  return(gdat_snp)
 }
