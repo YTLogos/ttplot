@@ -12,7 +12,7 @@ snpMat <- function(vcffile){
   if(!require(snpStats)) BiocManager::install("snpStats")
   require(vcfR)
   require(snpStats)
-  snp <- read.vcfR(vcffile)
+  snp <- read.vcfR(vcffile, verbose = FALSE)
   snp_gt <- snp@gt
   snp_gt <- snp_gt[,-1]
   snpMat <- t(snp_gt)

@@ -10,7 +10,7 @@
 snpInfo <- function(file){
   if(!require(vcfR)) BiocManager::install("vcfR")
   require(vcfR)
-  snp <- read.vcfR(file)
+  snp <- read.vcfR(file,verbose = FALSE)
   snp_info <- snp@fix
   snp_info <- as.data.frame(snp_info)
   snp_info$ID <- paste(snp_info$CHROM, snp_info$POS, sep = "_")
