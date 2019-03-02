@@ -12,6 +12,6 @@ MyLDheatMap <- function(vcffile){
   gdat_snp <- snpMat(vcffile)
   info <- snpInfo(vcffile)
   rgb.palette <- colorRampPalette(rev(c("yellow","red")), space="rgb")
-  myLDheatmap <- LDheatmap(gdat_snp, info$POS, color = rgb.palette(100), flip = TRUE)
+  myLDheatmap <- LDheatmap(gdat_snp, info$POS, color = rgb.palette(100), flip = TRUE, title = title)
   print(myLDheatmap)
 }
