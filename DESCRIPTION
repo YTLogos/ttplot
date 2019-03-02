@@ -6,10 +6,4 @@ Description: Just some script I used in my PhD project, most of them are NOT sta
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: 
-    vcfR,
-    dplyr,
-    snpStats,
-    genetics,
-    LDheatmap
 RoxygenNote: 6.1.1
