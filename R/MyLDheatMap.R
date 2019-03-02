@@ -15,9 +15,11 @@ MyLDheatMap <- function(vcffile){
   gdat_snp <- ttplot::snpMat(vcffile)
   info <- ttplot::snpInfo(vcffile)
   rgb.palette <- colorRampPalette(rev(c("yellow","red")), space="rgb")
-  myLDheatmap <- LDheatmap(gdat_snp, info$POS,
+  MyHeatmap <- LDheatmap(gdat_snp,
+                         genetic.distances = info$POS,
+                         color = grey.colors(20))
+  myLDheatmap <- LDheatmap(MyHeatmap,
                            color = rgb.palette(100),
                            flip = TRUE,
                            title = paste0("The LDheatmap of ",title))
-#  print(myLDheatmap)
 }
