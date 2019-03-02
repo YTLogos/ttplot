@@ -1,10 +1,16 @@
 Package: ttplot
 Title: Tao Yan's Plot Toolkit
 Version: 0.0.0
-Authors@R: person(given = "Tao", family = "Yan", role = c("aut", "cre"), email = "tyan@zju.edu.cn")
+Authors@R: person("Tao", "Yan", email = "tyan@zju.edu.cn", role = c("aut", "cre"))
 Description: Just some script I used in my PhD project, most of them are NOT stable enough.
-License: MIT + file LICENSE
+Depends: R (>= 3.4.0)
+Imports:
+    vcfR,
+    dplyr,
+    snpStats,
+    LDheatmap
 Encoding: UTF-8
 LazyData: true
+ByteCompile: true
+License: MIT + file LICENSE
 RoxygenNote: 6.1.1
-Imports: LDheatmap, dplyr, vcfR, snpStats, genetics
