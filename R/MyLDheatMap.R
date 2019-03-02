@@ -8,7 +8,7 @@
 #' MyLDheatMap(vcffile)
 
 MyLDheatMap <- function(vcffile){
-  title <- sub(".R","",basename(vcffile))
+  title <- sub(".vcf","",basename(vcffile))
   gdat_snp <- snpMat(vcffile)
   info <- snpInfo(vcffile)
   rgb.palette <- colorRampPalette(rev(c("yellow","red")), space="rgb")
