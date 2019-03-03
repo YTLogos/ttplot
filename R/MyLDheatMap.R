@@ -9,7 +9,7 @@
 
 MyLDheatMap <- function(vcffile){
   if(!require(LDheatmap)) BiocManager::install("LDheatmap")
-  require(LDheatmap)
+  require(LDheatmap,quietly = T)
   name <- basename(vcffile)
   title <- sub(".vcf","",name)
   gdat_snp <- ttplot::getsnpMat(vcffile)
