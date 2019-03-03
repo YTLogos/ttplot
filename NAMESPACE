@@ -2,5 +2,5 @@
 
 export(MyLDheatMap)
 export(convertToNumeric)
+export(getsnpInfo)
 export(getsnpMat)
-export(snpInfo)

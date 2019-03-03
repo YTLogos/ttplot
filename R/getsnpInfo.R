@@ -7,7 +7,7 @@
 #' @examples
 #' snpInfo(sample.vcf)
 
-snpInfo <- function(file){
+getsnpInfo <- function(file){
   if(!require(vcfR)) BiocManager::install("vcfR")
   require(vcfR)
   snp <- read.vcfR(file,verbose = FALSE)
