@@ -21,4 +21,5 @@ MyLDheatMap <- function(vcffile="",title=""){
                            color = rgb.palette(100),
                            flip = TRUE,
                            title = paste0("The LDheatmap of ",title))
+  return(myLDheatMap)
 }
