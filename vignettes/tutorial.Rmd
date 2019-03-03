@@ -2,9 +2,13 @@
 title: "A simple tutorial of ttplot"
 author: "Tao Yan"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    fig_width: 6
+    fig_height: 6
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{A simple tutorial of ttplot}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -91,7 +95,7 @@ chrC07	31076306	.	G	T	.	.	PR	GT	0/0	0/0
 
 In the `extdata` directory there is one test file: test.vcf. We can test the function:
 
-```{r}
+```{r,echo=TRUE, eval=TRUE, fig.align='center', dpi= 300}
 library(ttplot)
 test <- system.file("extdata", "test.vcf", package = "ttplot")
 ttplot::MyLDheatMap(vcffile = test, title = "My gene region")
