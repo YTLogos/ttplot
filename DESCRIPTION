@@ -10,7 +10,5 @@ LazyData: true
 ByteCompile: true
 License: MIT + file LICENSE
 RoxygenNote: 6.1.1
-Suggests: 
-    knitr,
-    rmarkdown
+Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
