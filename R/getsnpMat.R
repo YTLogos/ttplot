@@ -14,14 +14,14 @@ getsnpMat <- function(vcffile){
   require(genetics)
   snp_data <- read.vcfR(vcffile, verbose = FALSE)
   snp_gt <- snp_data@gt
-  snp_gt <- as.data.frame(snp_data[,-1])
+  snp_gt <- as.data.frame(snp_gt[,-1])
   info <- as.data.frame(snp_data@fix)
   info$ID <- paste(info$CHROM,info$POS,sep = "_")
   snp_geno <- cbind(info[,c(4,5)],snp_gt)
-  snp_geno[,1:ncol(snp_genp=o)] <- lapply(snp_geno[,1:ncol(snp_geno)], as.character)
+  snp_geno[,1:ncol(snp_geno)] <- lapply(snp_geno[,1:ncol(snp_geno)], as.character)
   for (i in 1:nrow(snp_geno)){
     for (j in 3:ncol(snp_geno)){
-      if (is.na(snp_data[i,j])){
+      if (is.na(snp_geno[i,j])){
         snp_geno[i,j] <- NA
       }else if (snp_geno[i,j]=="0/0"){
         snp_geno[i,j] <- paste(snp_geno[i,1],snp_geno[i,1], sep = "/")

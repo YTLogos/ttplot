@@ -13,7 +13,7 @@ MyLDheatMap <- function(vcffile){
   name <- basename(vcffile)
   title <- sub(".vcf","",name)
   gdat_snp <- ttplot::getsnpMat(vcffile)
-  info <- ttplot::snpInfo(vcffile)
+  info <- ttplot::getsnpInfo(vcffile)
   snp_dist <- as.numeric(info$POS)
   rgb.palette <- colorRampPalette(rev(c("yellow","red")), space="rgb")
   MyHeatmap <- LDheatmap(gdat_snp,
