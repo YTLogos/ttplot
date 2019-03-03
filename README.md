@@ -15,7 +15,7 @@ devtools::install_github("YTLogos/ttplot")
 
 ## Usage
 
-Until now there just several functions
+Until now there are just several functions
 
 ### Draw the LDheatmap from the [**VCF**](https://en.wikipedia.org/wiki/Variant_Call_Format) format file ([**plink**](https://www.cog-genomics.org/plink2/) format)
 
