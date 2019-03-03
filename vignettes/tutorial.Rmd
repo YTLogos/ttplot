@@ -91,11 +91,12 @@ chrC07	31076273	.	G	A	.	.	PR	GT	0/0	0/1
 chrC07	31076306	.	G	T	.	.	PR	GT	0/0	0/0
 ```
 
-In the `vignette` directory there is one test file: test.vcf. We can test the function:
+In the `extdata` directory there is one test file: test.vcf. We can test the function:
 
-```
+```{r}
 library(ttplot)
-ttplot::MyLDheatMap("")
+test <- system.file("extdata", "test.vcf", package = "ttplot")
+ttplot::MyLDheatMap(vcffile = test, title = "My gene region")
 ```
 
 
