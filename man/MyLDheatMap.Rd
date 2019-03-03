@@ -4,7 +4,7 @@
 \alias{MyLDheatMap}
 \title{Get the LDhaetmap from the vcf file (plink format)}
 \usage{
-MyLDheatMap(vcffile)
+MyLDheatMap(vcffile, title = "")
 }
 \arguments{
 \item{vcffile}{The plink format vcf file.}

@@ -10,7 +10,7 @@
 getsnpMat <- function(vcffile){
   if(!require(vcfR)) BiocManager::install("vcfR")
   if(!require(genetics)) BiocManager::install("genetics")
-  require(vcfR,quietly = T)
+  require(vcfR)
   require(genetics,quietly = T)
   snp_data <- read.vcfR(vcffile, verbose = FALSE)
   snp_gt <- snp_data@gt
