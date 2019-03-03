@@ -5,7 +5,7 @@
 #' @return the LDheatmap.
 #' @export
 #' @examples
-#' MyLDheatMap(vcffile)
+#' MyLDheatMap(test_vcf)
 
 MyLDheatMap <- function(vcffile){
   if(!require(LDheatmap)) BiocManager::install("LDheatmap")
