@@ -16,5 +16,5 @@ the LDheatmap.
 This function defined to obtain the LDheatmap from the vcf file directly.
 }
 \examples{
-MyLDheatMap(vcffile)
+MyLDheatMap(test_vcf, title="your title")
 }
