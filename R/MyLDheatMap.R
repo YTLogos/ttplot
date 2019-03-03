@@ -7,9 +7,9 @@
 #' @examples
 #' MyLDheatMap(test_vcf, title="your title")
 
-MyLDheatMap <- function(vcffile,title=""){
+MyLDheatMap <- function(vcffile="",title=""){
   if(!require(LDheatmap)) BiocManager::install("LDheatmap")
-  require(LDheatmap)
+  require(LDheatmap,quietly = T)
   gdat_snp <- ttplot::getsnpMat(vcffile)
   info <- ttplot::getsnpInfo(vcffile)
   snp_dist <- as.numeric(info$POS)

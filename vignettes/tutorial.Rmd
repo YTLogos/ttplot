@@ -1,0 +1,36 @@
+---
+title: "A simple tutorial of ttplot"
+author: "Tao Yan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Overview
+
+This package is just developed to finish my project. So most of scripts are NOT stable enough. By wrapping some functions from other useful packages, it's easy for us to finish our jobs.
+
+## Installation
+
+This packages dependent on some other packages:
+
+[**vcfR**](https://github.com/knausb/vcfR),[**dplyr**](https://github.com/tidyverse/dplyr),[**genetics**](https://cran.r-project.org/web/packages/genetics/index.html),[**LDheatmap**](https://github.com/SFUStatgen/LDheatmap), ...
+
+I suggest you install the package [**vcfR**](https://github.com/knausb/vcfR) first, other packages will be installed at the tome you install the package [**ttplot**](https://github.com/YTLogos/ttplot)
+
+```
+#install the vcfR
+
+
+
+```
