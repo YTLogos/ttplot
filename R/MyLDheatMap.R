@@ -1,11 +1,18 @@
-#' Get the LDhaetmap from the vcf file (plink format)
+#' Get the LDhaetmap from the vcf file (plink format) directly
 #'
 #' This function defined to obtain the LDheatmap from the vcf file directly.
-#' @param vcffile The plink format vcf file.
+#' @param vcffile The plink format vcf file. More detail can see View(test_vcf)
+#' @param file.output a logical, if file.output=TRUE, the result will be saved.
+#' if file.output=FALSE, the result will be printed. The default is TRUE
+#' @param file a character, users can choose the different output formats of plot, so far, "jpeg", "pdf", "png", "tiff" can be selected by users. The default is "png".
+#' @param title a character, the title of the LDheatmap will be "The LDheatmap of title".
+#' the default is "region:". I suggest users use your own title.
+#' @param dpi a number, the picture element for .jpeg, .png and .tiff files. The default is 300.
+#' @param verbose whether to print the reminder.
 #' @return the LDheatmap.
-#' @export
+#' @export MyLDheatMap
 #' @examples
-#' MyLDheatMap(test_vcf, title="your title")
+#' MyLDheatMap(system.file("extdata","test.vcf", package = "ttplot"), title="your title")
 
 MyLDheatMap <- function(
   vcffile,
@@ -24,14 +31,14 @@ MyLDheatMap <- function(
   snp_dist <- as.numeric(info$POS)
   rgb.palette <- colorRampPalette(rev(c("yellow","red")), space="rgb")
   if (!file.output){
-    if (verbose) print("The Ldheatmap Plotting...")
+    if (verbose) print("The Ldheatmap is Plotting...")
     LDheatmap(gdat_snp,
             genetic.distances = snp_dist,
             color = rgb.palette(100),
             flip = TRUE,title = paste0("The LDheatmap of ",title))
   }
   if (file.output){
-    if (verbose) print("The Ldheatmap Plotting...")
+    if (verbose) print("The Ldheatmap Plotting! Please wait for a moment...")
     if(file=="jpg")	jpeg(paste("LDheatmap of ", output, ".jpg", sep=""), width = 9*dpi, height=7*dpi, res=dpi, quality = 100)
     if(file=="pdf")	pdf(paste("LDheatmap of ", output, ".pdf", sep=""), width = 9, height=7)
     if(file=="tiff")	tiff(paste("LDheatmap of ", output, ".tiff", sep=""), width = 9*dpi, height=7*dpi, res=dpi)
@@ -47,5 +54,5 @@ MyLDheatMap <- function(
             flip = TRUE,
             title = paste0("The LDheatmap of ",title))
   if (file.output) dev.off()
-  if(file.output & verbose)	print(paste("Plots are stored in: ", getwd(), sep=""))
+  if(file.output & verbose)	print(paste("Plot is stored in: ", getwd(), sep=""))
 }
