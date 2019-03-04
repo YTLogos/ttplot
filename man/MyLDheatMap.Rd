@@ -5,7 +5,7 @@
 \title{Get the LDhaetmap from the vcf file (plink format)}
 \usage{
 MyLDheatMap(vcffile, file.output = TRUE, file = "png",
-  output = "region", title = "", verbose = TRUE, dpi = 300)
+  output = "region", title = "region:", verbose = TRUE, dpi = 300)
 }
 \arguments{
 \item{vcffile}{The plink format vcf file.}

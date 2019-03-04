@@ -12,7 +12,7 @@ MyLDheatMap <- function(
   file.output=TRUE,
   file="png",
   output="region",
-  title="",
+  title="region:",
   verbose=TRUE,
   dpi=300
   )
