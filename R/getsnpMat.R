@@ -10,8 +10,8 @@
 getsnpMat <- function(vcffile){
   if(!require(vcfR)) BiocManager::install("vcfR")
   if(!require(genetics)) BiocManager::install("genetics")
-  suppressPackageStartupMessages(require(vcfR,quietly = T))
-  suppressPackageStartupMessages(require(genetics,quietly = T))
+  suppressMessages(require(vcfR,quietly = T))
+  suppressMessages(require(genetics,quietly = T))
   snp_data <- read.vcfR(vcffile, verbose = FALSE)
   snp_gt <- snp_data@gt
   snp_gt <- as.data.frame(snp_gt[,-1])
