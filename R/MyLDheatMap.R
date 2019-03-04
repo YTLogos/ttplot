@@ -45,7 +45,7 @@ MyLDheatMap <- function(
             flip = TRUE,title = paste0("The LDheatmap of ",title))
   }
   if (file.output){
-    if (verbose) print("The Ldheatmap is Plotting! Please wait for a moment...")
+    if(verbose) print("The Ldheatmap is Plotting! Please wait for a moment...")
     if(file=="jpg")	jpeg(paste("LDheatmap of ", output, ".jpg", sep=""), width = 9*dpi, height=7*dpi, res=dpi, quality = 100)
     if(file=="pdf")	pdf(paste("LDheatmap of ", output, ".pdf", sep=""), width = 9, height=7)
     if(file=="tiff")	tiff(paste("LDheatmap of ", output, ".tiff", sep=""), width = 9*dpi, height=7*dpi, res=dpi)
@@ -60,6 +60,6 @@ MyLDheatMap <- function(
             color = rgb.palette(100),
             flip = TRUE,
             title = paste0("The LDheatmap of ",title))
-  if (file.output) dev.off()
+  if(file.output) dev.off()
   if(file.output & verbose)	print(paste("Plot is stored in: ", getwd(), sep=""))
 }

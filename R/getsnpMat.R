@@ -18,7 +18,8 @@ getsnpMat <- function(vcffile){
   info <- as.data.frame(snp_data@fix)
   info$ID <- paste(info$CHROM,info$POS,sep = "_")
   snp_geno <- cbind(info[,c(4,5)],snp_gt)
-  snp_geno[,1:ncol(snp_geno)] <- lapply(snp_geno[,1:ncol(snp_geno)], as.character)
+  snp_geno[,1:ncol(snp_geno)] <- lapply(
+    snp_geno[,1:ncol(snp_geno)], as.character)
   for (i in 1:nrow(snp_geno)){
     for (j in 3:ncol(snp_geno)){
       if (is.na(snp_geno[i,j])){
