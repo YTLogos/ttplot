@@ -91,10 +91,10 @@ MyLDheatMap(vcffile, file.output = TRUE, file = "png",
 
 #### Arguments
 
-* vcffile The plink format vcf file. More detail can see `View(test_vcf)`.
-* file.output a logical, if `file.output=TRUE`, the result will be saved. if `file.output=FALSE`, the result will be printed. The default is `TRUE`.
-* file a character, users can choose the different output formats of plot, so far, **"jpeg"**, **"pdf"**, **"png"**, **"tiff"** can be selected by users. The default is **"png"**.
-* title	a character, the title of the LDheatmap will be "The LDheatmap of title". the default is "region:". I suggest users use your own title.
-* verbose	whether to print the reminder.
-* dpi	a number, the picture element for **.jpeg**, **.png** and **.tiff** files. The default is `300`.
+* **vcffile:** The plink format vcf file. More detail can see `View(test_vcf)`.
+* **file.output:** a logical, if `file.output=TRUE`, the result will be saved. if `file.output=FALSE`, the result will be printed. The default is `TRUE`.
+* **file:** a character, users can choose the different output formats of plot, so far, **"jpeg"**, **"pdf"**, **"png"**, **"tiff"** can be selected by users. The default is **"png"**.
+* **title:**	a character, the title of the LDheatmap will be "The LDheatmap of title". the default is "region:". I suggest users use your own title.
+* **verbose:**	whether to print the reminder.
+* **dpi:**	a number, the picture element for **.jpeg**, **.png** and **.tiff** files. The default is `300`.
 
