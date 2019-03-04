@@ -41,7 +41,7 @@ Until now there are just several functions
 
 ### Draw the LDheatmap from the [**VCF**](https://en.wikipedia.org/wiki/Variant_Call_Format) format file ([**plink**](https://www.cog-genomics.org/plink2/) format)
 
-**VCF** (Variant Call Format) is a text file format. It contains meta-information lines, a header line, and then data lines each containing information about a position in the genome. There is an example how to do draw LDheatmap from data in VCF file(**plink** format). The **VCF** file looks like:
+**VCF** (Variant Call Format) is a text file format. It contains meta-information lines, a header line, and then data lines each containing information about a position in the genome. There is an example how to draw LDheatmap from data in VCF file(**plink** format). The **VCF** file looks like:
 
 ```
 #This is a test vcf file (test.vcf) 
