@@ -38,7 +38,7 @@ MyLDheatMap <- function(
   snp_dist <- as.numeric(info$POS)
   rgb.palette <- colorRampPalette(rev(c("yellow","red")), space="rgb")
   if (!file.output){
-    if (verbose) print("The Ldheatmap is Plotting...")
+    if (verbose) print("The Ldheatmap is Plotting! Please wait for a moment...")
     LDheatmap(gdat_snp,
             genetic.distances = snp_dist,
             color = rgb.palette(100),
