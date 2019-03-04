@@ -9,7 +9,7 @@
 
 getsnpInfo <- function(file){
   if(!require(vcfR)) BiocManager::install("vcfR")
-  suppressMessages(require(vcfR,quietly = T))
+  suppressMessages(require(vcfR,quietly = T,warn.conflicts = F))
   snp <- read.vcfR(file,verbose = FALSE)
   snp_info <- snp@fix
   snp_info <- as.data.frame(snp_info)
