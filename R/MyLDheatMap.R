@@ -32,7 +32,7 @@ MyLDheatMap <- function(
   )
   {
   if(!require(LDheatmap)) BiocManager::install("LDheatmap")
-  suppressMessages(require(LDheatmap,quietly = T,warn.conflicts = F))
+  suppressMessages(require(LDheatmap))
   gdat_snp <- ttplot::getsnpMat(vcffile)
   info <- ttplot::getsnpInfo(vcffile)
   snp_dist <- as.numeric(info$POS)
