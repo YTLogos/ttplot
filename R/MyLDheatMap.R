@@ -9,10 +9,17 @@
 #' the default is "region:". I suggest users use your own title.
 #' @param dpi a number, the picture element for .jpeg, .png and .tiff files. The default is 300.
 #' @param verbose whether to print the reminder.
+#'
+#' @author Tao Yan <\email{tyan@zju.edu.cn}> |
+#' <\href{https://taoyan.netlify.com/}{https://taoyan.netlify.com/}>
+#'
 #' @return the LDheatmap.
+#'
 #' @export MyLDheatMap
+#'
 #' @examples
 #' MyLDheatMap(system.file("extdata","test.vcf", package = "ttplot"), title="your title")
+
 
 MyLDheatMap <- function(
   vcffile,

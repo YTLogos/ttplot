@@ -31,3 +31,7 @@ This function defined to obtain the LDheatmap from the vcf file directly.
 \examples{
 MyLDheatMap(system.file("extdata","test.vcf", package = "ttplot"), title="your title")
 }
+\author{
+Tao Yan <\email{tyan@zju.edu.cn}> |
+<\href{https://taoyan.netlify.com/}{https://taoyan.netlify.com/}>
+}
