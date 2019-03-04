@@ -78,7 +78,7 @@ This kind of **VCF** is very large, so first we can use **plink** to recode the 
 $ plink --vcf test.vcf --recode vcf-iid --out Test -allow-extra-chr
 ```
 
-So the final **VCF** file we we will use is looks like：
+So the final **VCF** file we will use is looks like：
 
 ```
 ##fileformat=VCFv4.2
