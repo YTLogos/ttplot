@@ -28,7 +28,7 @@ MyLDheatMap <- function(
   output="region",
   title="region:",
   verbose=TRUE,
-  dpi=300
+  dpi=300,...
   )
   {
   if(!require(LDheatmap)) BiocManager::install("LDheatmap")
