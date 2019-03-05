@@ -122,7 +122,7 @@ ttplot::ggmanhattan(gwasResults)
 
 ![](https://raw.githubusercontent.com/YTLogos/Pic_blog/master/The%20Manhattan%20Plot%20of%20gwas.png)
 
-### more 
+### More 
 ```
 ggmanhattan(gwasres, snp = NA, bp = NA, chrom = NA, pvalue = NA,
   index = NA, file.output = FALSE, file = "png", output = "Trait",
