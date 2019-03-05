@@ -14,6 +14,11 @@ utils::globalVariables(c("index","marker","chrom_alt","xbreaks"))
 #' @param title the title of manhattan plot. The default is "Manhattan Plot".
 #' @param color the colors of alternate chromosome. The default is "#FF8C00" and "#556B2F"
 #' @param pointsize the size of point
+#' @param file.output a logical, if file.output=TRUE, the result will be saved.
+#' if file.output=FALSE, the result will be printed. The default is TRUE.
+#' @param file a character, users can choose the different output formats of plot,
+#' so far, "jpeg", "pdf", "png", "tiff" can be selected by users. The default is "png".
+#' @param dpi a number, the picture element for .jpeg, .png and .tiff files. The default is 300.
 #'
 #' @author Tao Yan <\email{tyan@zju.edu.cn}> |
 #' <\href{https://taoyan.netlify.com/}{https://taoyan.netlify.com/}>
@@ -34,11 +39,16 @@ ggmanhattan <- function(
               chr=NA,
               pvalue=NA,
               index=NA,
+              file.output=FALSE,
+              file="png",
+              output="Trait",
+              dpi=300,
               vlinetype="solid",
               vlinesize=0.75,
               title="Manhattan Plot",
               color= c("#FF8C00", "#556B2F"),
-              pointsize= 1.25,...)
+              pointsize= 1.25,
+              verbose=TRUE,...)
   {
   dfnames <- names(gwasres)
   if(is.na(chrom)){
@@ -134,7 +144,27 @@ ggmanhattan <- function(
           axis.text = element_text(face = "bold",size=16, colour = "black"),
           plot.title = element_text(hjust = 0.5, size = 20, face = "bold"))
   class(p1) <- append(class(p1),"ggman")
-  return(p1)
+
+  #whether to save the plot or not
+
+  if(!file.output){
+    if(verbose) print("The Manhattan Plot is Plotting! Please wait for a moment...")
+    return(p1)
+  }
+  if (file.output){
+    if(verbose) print("The Manhattan Plot is Plotting! Please wait for a moment...")
+    if(file=="jpg")	jpeg(paste("The Manhattan Plot of ", output, ".jpg", sep=""), width = 15*dpi, height=7*dpi, res=dpi, quality = 100)
+    if(file=="pdf")	pdf(paste("The Manhattan Plot of ", output, ".pdf", sep=""), width = 15, height=7)
+    if(file=="tiff")	tiff(paste("The Manhattan Plot of ", output, ".tiff", sep=""), width = 15*dpi, height=7*dpi, res=dpi)
+    if(file=="png")	png(paste("The Manhattan Plot of ", output, ".png", sep=""), width = 15*dpi, height=7*dpi, res=dpi)
+    par(xpd=TRUE)
+  }else{
+    if(is.null(dev.list())) dev.new(width =9, height=7)
+    par(xpd=TRUE)
+  }
+  print(p1)
+  if(file.output) dev.off()
+  if(file.output & verbose) print(paste("The Manhattan Plot is stored in: ", getwd(), sep = ""))
   }
 
 

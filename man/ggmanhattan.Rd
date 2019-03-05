@@ -5,9 +5,10 @@
 \title{Make manhattan plot with full ggplot customizability}
 \usage{
 ggmanhattan(gwasres, snp = NA, bp = NA, chr = NA, pvalue = NA,
-  index = NA, vlinetype = "solid", vlinesize = 0.75,
+  index = NA, file.output = FALSE, file = "png", output = "Trait",
+  dpi = 300, vlinetype = "solid", vlinesize = 0.75,
   title = "Manhattan Plot", color = c("#FF8C00", "#556B2F"),
-  pointsize = 1.25, ...)
+  pointsize = 1.25, verbose = TRUE, ...)
 }
 \arguments{
 \item{gwasres}{a data frame of gwas results.}
@@ -17,6 +18,14 @@ ggmanhattan(gwasres, snp = NA, bp = NA, chr = NA, pvalue = NA,
 \item{bp}{Name of the column containing the SNP positions; default is 'bp'.}
 
 \item{pvalue}{Name of the column containing the p values; default is 'pvalue'.}
+
+\item{file.output}{a logical, if file.output=TRUE, the result will be saved.
+if file.output=FALSE, the result will be printed. The default is TRUE.}
+
+\item{file}{a character, users can choose the different output formats of plot,
+so far, "jpeg", "pdf", "png", "tiff" can be selected by users. The default is "png".}
+
+\item{dpi}{a number, the picture element for .jpeg, .png and .tiff files. The default is 300.}
 
 \item{vlinetype}{the type of vline (geom_vline()). The default is "solid".}
 
