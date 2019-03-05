@@ -114,7 +114,7 @@ Here, we will use the data `gwasResults` from R package [**qqman**](https://gith
 6 rs6   1  6 0.5190959
 ```
 
-Then use the function ggmanhattan from ttplot to make a manhattan plot:
+Then use the function ggmanhattan from [**ttplot**](https://github.com/YTLogos/ttplot) to make a manhattan plot:
 
 ```
 ttplot::ggmanhattan(gwasResults)
