@@ -109,7 +109,7 @@ ggmanhattan <- function(
   df$marker <- -log10(df$pvalue)
 
   #specify the y limit
-  ymax <- max(df$marker)+2
+  ymax <- max(df$marker)+1.5
 
   #specify x axis tick points
 
