@@ -2,7 +2,7 @@
 utils::globalVariables(c("index","marker","chrom_alt","xbreaks"))
 #' Make manhattan plot with full ggplot customizability
 #'
-#' This function is provided to make manhattan plor with full ggplot customizability. So next
+#' This function is provided to make manhattan plot with full ggplot customizability. So next
 #' we can customize the manhattan plot with kinds of functions of ggplot2 and add additional layers.
 #' @param gwasres a data frame of gwas results.
 #' @param snp Name of the column containing SNP identifiers; default is 'snp'.
@@ -13,7 +13,7 @@ utils::globalVariables(c("index","marker","chrom_alt","xbreaks"))
 #' @param vlinesize the size of the vline. The default is 0.75.
 #' @param title the title of manhattan plot. The default is "Manhattan Plot".
 #' @param color the colors of alternate chromosome. The default is "#FF8C00" and "#556B2F"
-#' @param pointsize the size of point
+#' @param pointsize the size of point. The default is 1.25.
 #' @param file.output a logical, if file.output=TRUE, the result will be saved.
 #' if file.output=FALSE, the result will be printed. The default is TRUE.
 #' @param file a character, users can choose the different output formats of plot,

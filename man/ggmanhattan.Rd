@@ -37,13 +37,13 @@ so far, "jpeg", "pdf", "png", "tiff" can be selected by users. The default is "p
 
 \item{color}{the colors of alternate chromosome. The default is "#FF8C00" and "#556B2F"}
 
-\item{pointsize}{the size of point}
+\item{pointsize}{the size of point. The default is 1.25.}
 }
 \value{
 a manhattan plot based on ggplot2.
 }
 \description{
-This function is provided to make manhattan plor with full ggplot customizability. So next
+This function is provided to make manhattan plot with full ggplot customizability. So next
 we can customize the manhattan plot with kinds of functions of ggplot2 and add additional layers.
 }
 \examples{

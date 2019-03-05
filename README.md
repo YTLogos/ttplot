@@ -56,7 +56,7 @@ This kind of **VCF** is very large, so first we can use **plink** to recode the 
 $ plink --vcf test.vcf --recode vcf-iid --out Test -allow-extra-chr
 ```
 
-So the final **VCF** file we will use is looks like：
+So the final **VCF** file we will use looks like：
 
 ```
 ##fileformat=VCFv4.2
@@ -98,3 +98,51 @@ MyLDheatMap(vcffile, file.output = TRUE, file = "png",
 * **verbose:**	whether to print the reminder.
 * **dpi:**	a number, the picture element for **.jpeg**, **.png** and **.tiff** files. The default is `300`.
 
+
+## ggmanhattan(): make manhattan plot based on **ggplot2**
+
+Here, we will use the data `gwasResults` from R package [**qqman**](https://github.com/stephenturner/qqman). This function is provided to make manhattan plot with full ggplot customizability. So next we can customize the manhattan plot with kinds of functions of ggplot2 and add additional layers. The data need be reshaped as following:
+
+```
+> head(gwasResults)
+  SNP CHR BP         P
+1 rs1   1  1 0.9148060
+2 rs2   1  2 0.9370754
+3 rs3   1  3 0.2861395
+4 rs4   1  4 0.8304476
+5 rs5   1  5 0.6417455
+6 rs6   1  6 0.5190959
+```
+
+Then use the function ggmanhattan from ttplot to make a manhattan plot:
+
+```
+ttplot::ggmanhattan(gwasResults)
+```
+
+![](https://raw.githubusercontent.com/YTLogos/Pic_blog/master/The%20Manhattan%20Plot%20of%20gwas.png)
+
+### more 
+```
+ggmanhattan(gwasres, snp = NA, bp = NA, chrom = NA, pvalue = NA,
+  index = NA, file.output = FALSE, file = "png", output = "Trait",
+  dpi = 300, vlinetype = "solid", vlinesize = 0.75,
+  title = "Manhattan Plot", color = c("#FF8C00", "#556B2F"),
+  pointsize = 1.25, verbose = TRUE, ...)
+```
+
+#### Arguments
+
+* **gwasres**	a data frame of gwas results.
+* **snp**	Name of the column containing `SNP` identifiers; default is 'snp'.
+* **bp**	Name of the column containing the `SNP` positions; default is `'bp'`.
+* **chrom**	Name of the column containing the chromosome identifers; default is `'chrom'`.
+* **pvalue**	Name of the column containing the p values; default is `'pvalue'`.
+* **file.output**	a logical, if file.output=`TRUE`, the result will be saved. if file.output=`FALSE`, the result will be printed. The default is `TRUE`.
+* **file**	a character, users can choose the different output formats of plot, so far, `"jpeg"`, `"pdf"`, `"png"`, `"tiff"` can be selected by users. The default is `"png"`.
+* **dpi**	a number, the picture element for .jpeg, .png and .tiff files. The default is 300.
+* **vlinetype**	the type of vline (`geom_vline()`). The default is `"solid"`.
+* **vlinesize**	the size of the vline. The default is 0.75.
+* title	the title of manhattan plot. The default is `"Manhattan Plot"`.
+* **color**	the colors of alternate chromosome. The default is `"#FF8C00"` and `"#556B2F"`.
+* **pointsize**	the size of point. The default is 1.25.
