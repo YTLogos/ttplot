@@ -36,7 +36,7 @@ ggmanhattan <- function(
               gwasres,
               snp=NA,
               bp=NA,
-              chr=NA,
+              chrom=NA,
               pvalue=NA,
               index=NA,
               file.output=FALSE,
@@ -109,7 +109,7 @@ ggmanhattan <- function(
   df$marker <- -log10(df$pvalue)
 
   #specify the y limit
-  ymax <- max(df$marker)+1
+  ymax <- max(df$marker)+2
 
   #specify x axis tick points
 

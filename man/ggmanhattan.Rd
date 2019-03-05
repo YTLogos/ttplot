@@ -4,7 +4,7 @@
 \alias{ggmanhattan}
 \title{Make manhattan plot with full ggplot customizability}
 \usage{
-ggmanhattan(gwasres, snp = NA, bp = NA, chr = NA, pvalue = NA,
+ggmanhattan(gwasres, snp = NA, bp = NA, chrom = NA, pvalue = NA,
   index = NA, file.output = FALSE, file = "png", output = "Trait",
   dpi = 300, vlinetype = "solid", vlinesize = 0.75,
   title = "Manhattan Plot", color = c("#FF8C00", "#556B2F"),
@@ -16,6 +16,8 @@ ggmanhattan(gwasres, snp = NA, bp = NA, chr = NA, pvalue = NA,
 \item{snp}{Name of the column containing SNP identifiers; default is 'snp'.}
 
 \item{bp}{Name of the column containing the SNP positions; default is 'bp'.}
+
+\item{chrom}{Name of the column containing the chromosome identifers; default is 'chrom'.}
 
 \item{pvalue}{Name of the column containing the p values; default is 'pvalue'.}
 
@@ -36,8 +38,6 @@ so far, "jpeg", "pdf", "png", "tiff" can be selected by users. The default is "p
 \item{color}{the colors of alternate chromosome. The default is "#FF8C00" and "#556B2F"}
 
 \item{pointsize}{the size of point}
-
-\item{chrom}{Name of the column containing the chromosome identifers; default is 'chrom'.}
 }
 \value{
 a manhattan plot based on ggplot2.
