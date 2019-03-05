@@ -95,7 +95,7 @@ ggmanhattan <- function(
   }
 
   #calculate the numbers of chromosome
-  chrnum <- data.frame(table(dfm$chrom))
+  chrnum <- data.frame(table(df$chrom))
   chrnum$Var1 <- as.character(chrnum$Var1)
   chrnum <- chrnum[mixedorder(chrnum$Var1), ]
 
@@ -126,7 +126,7 @@ ggmanhattan <- function(
 
   #make the manhattan plot
 
-  p1 <- ggplot(dfm, aes(x=index, y=marker, colour=as.factor(chrom_alt)))+
+  p1 <- ggplot(df, aes(x=index, y=marker, colour=as.factor(chrom_alt)))+
     geom_point(size=pointsize)+
     scale_x_continuous(breaks = xbreaks, labels = names(xbreaks), expand = c(0,0))+
     scale_y_continuous(expand = c(0,0), limits = c(0, ymax))+
