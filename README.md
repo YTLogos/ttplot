@@ -1,6 +1,6 @@
 ## Overview
 
-This package is just developed to finish my project. So most of scripts are NOT stable enough. By wrapping some functions from other useful packages, it's easy for us to finish our jobs.
+This package is just developed to finish my project. So most of scripts are **NOT stable** enough. By wrapping some functions from other useful packages, it's easy for us to finish our jobs.
 
 ## Installation
 
@@ -71,7 +71,7 @@ chrC07	31076273	.	G	A	.	.	PR	GT	0/0	0/1
 chrC07	31076306	.	G	T	.	.	PR	GT	0/0	0/0
 ```
 
-In the `extdata` directory there is one test file: test.vcf. We can test the function:
+In the `extdata` directory there is one test file: `test.vcf`. We can test the function:
 
 ```
 library(ttplot)
@@ -101,7 +101,7 @@ MyLDheatMap(vcffile, file.output = TRUE, file = "png",
 
 ## ggmanhattan(): make manhattan plot based on **ggplot2**
 
-Here, we will use the data `gwasResults` from R package [**qqman**](https://github.com/stephenturner/qqman). This function is provided to make manhattan plot with full ggplot customizability. So next we can customize the manhattan plot with kinds of functions of ggplot2 and add additional layers. The data need be reshaped as following:
+Here, we will use the data `gwasResults` from R package [**qqman**](https://github.com/stephenturner/qqman). This function is provided to make manhattan plot with full ggplot customizability. So next we can customize the manhattan plot with kinds of functions of **ggplot2** and add additional layers. The data need be reshaped as following:
 
 ```
 > head(gwasResults)
@@ -114,7 +114,7 @@ Here, we will use the data `gwasResults` from R package [**qqman**](https://gith
 6 rs6   1  6 0.5190959
 ```
 
-Then use the function ggmanhattan from [**ttplot**](https://github.com/YTLogos/ttplot) to make a manhattan plot:
+Then use the function `ggmanhattan` from [**ttplot**](https://github.com/YTLogos/ttplot) to make a manhattan plot:
 
 ```
 ttplot::ggmanhattan(gwasResults)
@@ -143,6 +143,6 @@ ggmanhattan(gwasres, snp = NA, bp = NA, chrom = NA, pvalue = NA,
 * **dpi**	a number, the picture element for .jpeg, .png and .tiff files. The default is 300.
 * **vlinetype**	the type of vline (`geom_vline()`). The default is `"solid"`.
 * **vlinesize**	the size of the vline. The default is 0.75.
-* title	the title of manhattan plot. The default is `"Manhattan Plot"`.
-* **color**	the colors of alternate chromosome. The default is `"#FF8C00"` and `"#556B2F"`.
+* **title**	the title of manhattan plot. The default is `"Manhattan Plot"`.
+* **color**	the colors of alternate chromosome. The default is c(`"#FF8C00"`, `"#556B2F"`).
 * **pointsize**	the size of point. The default is 1.25.
