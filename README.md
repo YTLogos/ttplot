@@ -4,7 +4,7 @@ This package is just developed to finish my project. So most of scripts are NOT 
 
 ## Installation
 
-This packages dependent on some other packages:[**vcfR**](https://github.com/knausb/vcfR),[**dplyr**](https://github.com/tidyverse/dplyr),[**genetics**](https://cran.r-project.org/web/packages/genetics/index.html),[**LDheatmap**](https://github.com/SFUStatgen/LDheatmap), ...
+This package dependents on some other packages:[**vcfR**](https://github.com/knausb/vcfR),[**dplyr**](https://github.com/tidyverse/dplyr),[**genetics**](https://cran.r-project.org/web/packages/genetics/index.html),[**LDheatmap**](https://github.com/SFUStatgen/LDheatmap), ...
 
 The dependent packages will be installed at the time you install the package [**ttplot**](https://github.com/YTLogos/ttplot)
 
