@@ -19,6 +19,7 @@ utils::globalVariables(c("index","marker","chrom_alt","xbreaks"))
 #' @param file a character, users can choose the different output formats of plot,
 #' so far, "jpeg", "pdf", "png", "tiff" can be selected by users. The default is "png".
 #' @param dpi a number, the picture element for .jpeg, .png and .tiff files. The default is 300.
+#' @param output a character, the name of your trait. The default is "Trait"
 #'
 #' @author Tao Yan <\email{tyan@zju.edu.cn}> |
 #' <\href{https://taoyan.netlify.com/}{https://taoyan.netlify.com/}>
@@ -123,6 +124,7 @@ ggmanhattan <- function(
   #calculate the number of SNPs
 
   snp_num <- cumsum(chrnum$Freq)
+  snp_num <- snp_num-0.5
 
   #make the manhattan plot
 
@@ -153,10 +155,10 @@ ggmanhattan <- function(
   }
   if (file.output){
     if(verbose) print("The Manhattan Plot is Plotting! Please wait for a moment...")
-    if(file=="jpg")	jpeg(paste("The Manhattan Plot of ", output, ".jpg", sep=""), width = 15*dpi, height=7*dpi, res=dpi, quality = 100)
-    if(file=="pdf")	pdf(paste("The Manhattan Plot of ", output, ".pdf", sep=""), width = 15, height=7)
-    if(file=="tiff")	tiff(paste("The Manhattan Plot of ", output, ".tiff", sep=""), width = 15*dpi, height=7*dpi, res=dpi)
-    if(file=="png")	png(paste("The Manhattan Plot of ", output, ".png", sep=""), width = 15*dpi, height=7*dpi, res=dpi)
+    if(file=="jpg")	jpeg(paste("The_Manhattan_Plot_of_", output, ".jpg", sep=""), width = 15*dpi, height=7*dpi, res=dpi, quality = 100)
+    if(file=="pdf")	pdf(paste("The_Manhattan_Plot_of_", output, ".pdf", sep=""), width = 15, height=7)
+    if(file=="tiff")	tiff(paste("The_Manhattan_Plot_of_", output, ".tiff", sep=""), width = 15*dpi, height=7*dpi, res=dpi)
+    if(file=="png")	png(paste("The_Manhattan_Plot_of_", output, ".png", sep=""), width = 15*dpi, height=7*dpi, res=dpi)
     par(xpd=TRUE)
   }else{
     if(is.null(dev.list())) dev.new(width =9, height=7)

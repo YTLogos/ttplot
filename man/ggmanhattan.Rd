@@ -27,6 +27,8 @@ if file.output=FALSE, the result will be printed. The default is TRUE.}
 \item{file}{a character, users can choose the different output formats of plot,
 so far, "jpeg", "pdf", "png", "tiff" can be selected by users. The default is "png".}
 
+\item{output}{a character, the name of your trait. The default is "Trait"}
+
 \item{dpi}{a number, the picture element for .jpeg, .png and .tiff files. The default is 300.}
 
 \item{vlinetype}{the type of vline (geom_vline()). The default is "solid".}
