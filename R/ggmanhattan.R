@@ -124,7 +124,6 @@ ggmanhattan <- function(
   #calculate the number of SNPs
 
   snp_num <- cumsum(chrnum$Freq)
-  snp_num <- snp_num-0.5
 
   #make the manhattan plot
 
