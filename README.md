@@ -10,6 +10,10 @@ The dependent packages will be installed at the time you install the package [**
 
 ```
 #install the ttplot package from Github
+if(!require(devtools)) {
+  install.packages("devtools"); 
+  require(devtools)
+} 
 devtools::install_github("YTLogos/ttplot")
 ```
 
