@@ -13,13 +13,13 @@ ggmanhattan(gwasres, snp = NA, bp = NA, chrom = NA, pvalue = NA,
 \arguments{
 \item{gwasres}{a data frame of gwas results.}
 
-\item{snp}{Name of the column containing SNP identifiers; default is 'snp'.}
+\item{snp}{Name of the column containing SNP identifiers; default is NA.}
 
-\item{bp}{Name of the column containing the SNP positions; default is 'bp'.}
+\item{bp}{Name of the column containing the SNP positions; default is NA.}
 
-\item{chrom}{Name of the column containing the chromosome identifers; default is 'chrom'.}
+\item{chrom}{Name of the column containing the chromosome identifers; default is NA.}
 
-\item{pvalue}{Name of the column containing the p values; default is 'pvalue'.}
+\item{pvalue}{Name of the column containing the p values; default is NA.}
 
 \item{file.output}{a logical, if file.output=TRUE, the result will be saved.
 if file.output=FALSE, the result will be printed. The default is TRUE.}

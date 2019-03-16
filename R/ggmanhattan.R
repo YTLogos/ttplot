@@ -5,10 +5,10 @@ utils::globalVariables(c("index","marker","chrom_alt","xbreaks"))
 #' This function is provided to make manhattan plot with full ggplot customizability. So next
 #' we can customize the manhattan plot with kinds of functions of ggplot2 and add additional layers.
 #' @param gwasres a data frame of gwas results.
-#' @param snp Name of the column containing SNP identifiers; default is 'snp'.
-#' @param bp Name of the column containing the SNP positions; default is 'bp'.
-#' @param chrom Name of the column containing the chromosome identifers; default is 'chrom'.
-#' @param pvalue Name of the column containing the p values; default is 'pvalue'.
+#' @param snp Name of the column containing SNP identifiers; default is NA.
+#' @param bp Name of the column containing the SNP positions; default is NA.
+#' @param chrom Name of the column containing the chromosome identifers; default is NA.
+#' @param pvalue Name of the column containing the p values; default is NA.
 #' @param vlinetype the type of vline (geom_vline()). The default is "solid".
 #' @param vlinesize the size of the vline. The default is 0.75.
 #' @param title the title of manhattan plot. The default is "Manhattan Plot".
@@ -149,11 +149,11 @@ ggmanhattan <- function(
   #whether to save the plot or not
 
   if(!file.output){
-    if(verbose) print("The Manhattan Plot is Plotting! Please wait for a moment...")
+    if(verbose) cat("The Manhattan Plot is Plotting! Please wait for a moment...", sep = "\n")
     return(p1)
   }
   if (file.output){
-    if(verbose) print("The Manhattan Plot is Plotting! Please wait for a moment...")
+    if(verbose) cat("The Manhattan Plot is Plotting! Please wait for a moment...", sep = "\n")
     if(file=="jpg")	jpeg(paste("The_Manhattan_Plot_of_", output, ".jpg", sep=""), width = 15*dpi, height=7*dpi, res=dpi, quality = 100)
     if(file=="pdf")	pdf(paste("The_Manhattan_Plot_of_", output, ".pdf", sep=""), width = 15, height=7)
     if(file=="tiff")	tiff(paste("The_Manhattan_Plot_of_", output, ".tiff", sep=""), width = 15*dpi, height=7*dpi, res=dpi)
@@ -165,7 +165,7 @@ ggmanhattan <- function(
   }
   print(p1)
   if(file.output) dev.off()
-  if(file.output & verbose) print(paste("The Manhattan Plot is stored in: ", getwd(), sep = ""))
+  if(file.output & verbose) cat(paste("The Manhattan Plot is stored in: ", getwd(), sep = ""), sep = "\n")
   }
 
 

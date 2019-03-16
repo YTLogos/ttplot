@@ -2,8 +2,10 @@
 
 export(MyLDheatMap)
 export(convertToNumeric)
+export(get_gene_from_snp)
 export(getsnpInfo)
 export(getsnpMat)
 export(ggmanhattan)
 import(ggplot2)
 import(gtools)
+import(writexl)
