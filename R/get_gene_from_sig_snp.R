@@ -5,7 +5,7 @@
 #' @param sig.snp a data frame of significant SNPs.
 #' @param distance numeric (bp), it is to define the region. The default is 50000, you need to choose it based on the LD distance in your study.
 #' @param geneid Name of the column containing the geneid in gff file; default is NA.
-#' 
+#'
 #' @param gff.chrom Name of the column containing the chromosome identifers in the gff file; default is NA.
 #' @param snp.chrom Name of the column containing the chromosome identifers in the snp.sig file; default is NA.
 #' @param pvalue Name of the column containing the p values in snp.sig file; default is NA.
@@ -27,9 +27,9 @@
 #' get_gene_from_snp(gff,sig.snp)
 
 get_gene_from_snp <- function(
-  gff, 
-  sig.snp, 
-  distance=50000, 
+  gff,
+  sig.snp,
+  distance=50000,
   file.save=TRUE,
   file.type="csv",
   gff.chrom=NA,
@@ -49,7 +49,7 @@ get_gene_from_snp <- function(
       stop("Couldn't find the chromosome column. Please specify the name of the column with chromosome ids(chr, chrom or chromosome)")
     }
   }
-  
+
   if(is.na(gene_start)){
     gene_start <- search.names(c("start", "gene_start", "genestart", "begin"), gff_names)
     if(is.null(gene_start)){
@@ -98,7 +98,7 @@ get_gene_from_snp <- function(
   chr <- vector(mode = "numeric")
   start <- vector(mode = "numeric")
   end <- vector(mode = "numeric")
- 
+
   if(!file.save) {
     if(verbose) {
       cat(paste("The distance you choose is ", distance, "bp!", sep = ""), sep = "\n")
@@ -153,15 +153,3 @@ get_gene_from_snp <- function(
     return(gene_snp)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
