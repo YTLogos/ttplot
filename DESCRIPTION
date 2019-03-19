@@ -4,7 +4,12 @@ Version: 0.0.0
 Authors@R: person("Tao", "Yan", email = "tyan@zju.edu.cn", role = c("aut", "cre"))
 Description: Just some scripts I used in my PhD project, most of them are NOT stable enough.
 Depends: R (>= 3.4.0)
-Imports: dplyr, LDheatmap, genetics, vcfR
+Imports: 
+    dplyr,
+    LDheatmap,
+    genetics,
+    vcfR,
+    writexl
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
