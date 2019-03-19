@@ -80,11 +80,12 @@ In the `extdata` directory there is one test file: `test.vcf`. We can test the f
 ```
 library(ttplot)
 test <- system.file("extdata", "test.vcf", package = "ttplot")
+test <- read.table(test, header= TRUE)
 ttplot::MyLDheatMap(vcffile = test, title = "My gene region")
 ```
 ![LDheatmap](https://raw.githubusercontent.com/YTLogos/Pic_blog/master/LDheatmap.png)
 
-## More
+### More
 
 #### **Usage:**
 
@@ -150,3 +151,83 @@ ggmanhattan(gwasres, snp = NA, bp = NA, chrom = NA, pvalue = NA,
 * **title**	the title of manhattan plot. The default is `"Manhattan Plot"`.
 * **color**	the colors of alternate chromosome. The default is c(`"#FF8C00"`, `"#556B2F"`).
 * **pointsize**	the size of point. The default is 1.25.
+
+## Get genes bsaed on the locations of significant SNPs
+
+This function need two input files: gff, snp.
+
+```
+library(ttplot)
+gff <- read.table(system.file("extdata", "test.gff", package = "ttplot"), header= TRUE)
+head(gff)
+```
+```
+chr  start    end          gene
+1   1 436789 437474 chrA01g000077
+2   1 439907 442623 chrA01g000078
+3   1 448692 449999 chrA01g000079
+4   1 454920 456931 chrA01g000080
+5   1 457568 460619 chrA01g000081
+6   1 461129 462693 chrA01g000082
+```
+
+```
+snp <- read.table(system.file("extdata", "test_sig_snp.txt", package = "ttplot"), header= TRUE)
+head(snp)
+```
+
+```
+SNP CHR       BP        P
+1   1_500000   1   500000 5.53e-11
+2   1_650000   1   650000 7.04e-09
+3  2_1880000   2  1880000 3.84e-09
+4 3_30500000   3 30500000 7.57e-08
+```
+
+Then we can get the candidate genes in regions based on significant SNPs of GWAS results.
+
+```
+ttplot::get_gene_from_snp(gff = gff, sig.snp = snp, distance = 20000, file.save = FALSE)
+The distance you choose is 20000bp!
+You have 4 significant SNPs and 130 genes!
+Now we will extract the genes in the significant regions! This will need some time, please wait for severals minutes! ...
+                                 
+The result is : 
+-------------------------------------------------------------
+# A tibble: 9 x 5
+  chrom geneid        gene_start gene_end snp_location
+  <dbl> <chr>              <dbl>    <dbl>        <dbl>
+1     1 chrA01g000088     479923   485997       500000
+2     1 chrA01g000089     495531   497917       500000
+3     1 chrA01g000090     498488   499689       500000
+4     1 chrA01g000091     499749   501301       500000
+5     1 chrA01g000092     503622   507079       500000
+6     1 chrA01g000093     507659   510321       500000
+7     1 chrA01g000094     515103   516863       500000
+8     1 chrA01g000095     517335   518776       500000
+9     1 chrA01g000096     519020   520668       500000
+```
+
+### More
+
+```
+Usage
+get_gene_from_snp(gff, sig.snp, distance = 50000, file.save = TRUE,
+  file.type = "csv", gff.chrom = NA, snp.chrom = NA, geneid = NA,
+  pvalue = NA, gene_start = NA, gene_end = NA, snp_location = NA,
+  verbose = TRUE, ...)
+```
+
+#### Arguments
+* gff: a data frame of all the gene (transcript), must have column names.
+* sig.snp: a data frame of significant SNPs.
+* distance: numeric (bp), it is to define the region. The default is 50000, you need to choose it based on the LD distance in your study.
+* file.save:	a logical, if file.output=TRUE, the result will be saved. if file.output=FALSE, the result will be printed. The default is TRUE.
+* file.type: a character, users can choose the different output formats, so far, "csv", "txt", "xlsx" can be selected by users. The default is "csv".
+* gff.chrom: Name of the column containing the chromosome identifers in the gff file; default is NA.
+* snp.chrom: Name of the column containing the chromosome identifers in the snp.sig file; default is NA.
+* geneid: Name of the column containing the geneid in gff file; default is NA.
+* pvalue: Name of the column containing the p values in snp.sig file; default is NA.
+* snp_location: Name of the column containing the snp position in snp.sig file; default is NA.
+
+
