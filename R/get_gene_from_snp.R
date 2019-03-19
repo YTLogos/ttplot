@@ -27,19 +27,19 @@
 #' get_gene_from_snp(gff,sig.snp)
 
 get_gene_from_snp <- function(
-  gff,
-  sig.snp,
-  distance=50000,
-  file.save=TRUE,
-  file.type="csv",
-  gff.chrom=NA,
-  snp.chrom=NA,
-  geneid=NA,
-  pvalue=NA,
-  gene_start=NA,
-  gene_end=NA,
-  snp_location=NA,
-  verbose=TRUE,...)
+                    gff,
+                    sig.snp,
+                    distance=50000,
+                    file.save=TRUE,
+                    file.type="csv",
+                    gff.chrom=NA,
+                    snp.chrom=NA,
+                    geneid=NA,
+                    pvalue=NA,
+                    gene_start=NA,
+                    gene_end=NA,
+                    snp_location=NA,
+                    verbose=TRUE,...)
   {
   gff_names <- names(gff)
   snp_names <- names(sig.snp)
@@ -123,7 +123,7 @@ get_gene_from_snp <- function(
     for (j in 1:nrow(gff)){
       if(gff[j,][[gff.chrom]]==sig.snp[i,][[snp.chrom]]){
         if(gff[j,][[gene_start]] %in% region | gff[j,][[gene_end]] %in% region){
-          gene <- append(gene, gff[j,][[geneid]])
+          gene <- append(gene, as.character(gff[j,][[geneid]]))
           snp <- append(snp, sig.snp[i,][[snp_location]])
           chr <- append(chr, gff[j,][[gff.chrom]])
           start <- append(start, gff[j,][[gene_start]])
