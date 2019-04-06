@@ -21,17 +21,7 @@ getsnpMat <- function(vcffile){
   snp_geno[,1:ncol(snp_geno)] <- lapply(
     snp_geno[,1:ncol(snp_geno)], as.character)
   for (i in 1:nrow(snp_geno)){
-    for (j in 3:ncol(snp_geno)){
-      if (is.na(snp_geno[i,j])){
-        snp_geno[i,j] <- NA
-      }else if (snp_geno[i,j]=="0/0"){
-        snp_geno[i,j] <- paste(snp_geno[i,1],snp_geno[i,1], sep = "/")
-      }else if (snp_geno[i,j]=="0/1"){
-        snp_geno[i,j] <- paste(snp_geno[i,1],snp_geno[i,2], sep = "/")
-      }else if (snp_geno[i,j]=="1/1"){
-        snp_geno[i,j] <- paste(snp_geno[i,2],snp_geno[i,2], sep = "/")
-      }
-    }
+    snp_geno[i,] <- ifelse(snp_geno[i,]=="0/0",paste(snp_geno[i,1],snp_geno[i,1], sep = "/"),ifelse(snp_geno[i,]=="0/1",paste(snp_geno[i,1],snp_geno[i,2], sep = "/"),ifelse(snp_geno[i,]=="1/1",paste(snp_geno[i,2],snp_geno[i,2], sep = "/"),snp_geno[i,])))
   }
   snpMat <- t(snp_geno[,-c(1,2)])
   snpNames <- info$ID
