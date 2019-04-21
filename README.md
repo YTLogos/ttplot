@@ -80,7 +80,6 @@ In the `extdata` directory there is one test file: `test.vcf`. We can test the f
 ```
 library(ttplot)
 test <- system.file("extdata", "test.vcf", package = "ttplot")
-test <- read.table(test, header= TRUE)
 ttplot::MyLDheatMap(vcffile = test, title = "My gene region")
 ```
 ![LDheatmap](https://raw.githubusercontent.com/YTLogos/Pic_blog/master/LDheatmap.png)
