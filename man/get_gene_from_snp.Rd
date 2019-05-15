@@ -4,7 +4,7 @@
 \alias{get_gene_from_snp}
 \title{Get the candidate genes in regions based on significant SNPs of GWAS results.}
 \usage{
-get_gene_from_snp(gff, sig.snp, distance = 50000, file.save = TRUE,
+get_gene_from_snp(gff, sig.snp, distance = 75000, file.save = TRUE,
   file.type = "csv", gff.chrom = NA, snp.chrom = NA, geneid = NA,
   pvalue = NA, gene_start = NA, gene_end = NA, snp_location = NA,
   verbose = TRUE, ...)

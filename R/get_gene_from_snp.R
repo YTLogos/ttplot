@@ -29,7 +29,7 @@
 get_gene_from_snp <- function(
                     gff,
                     sig.snp,
-                    distance=50000,
+                    distance=75000,
                     file.save=TRUE,
                     file.type="csv",
                     gff.chrom=NA,
@@ -93,11 +93,37 @@ get_gene_from_snp <- function(
   sig.snp$pvalue <- sig.snp[ ,pvalue]
   sig.snp$snp_location <- sig.snp[ ,snp_location]
   sig.snp$snp.chrom <- sig.snp[ ,snp.chrom]
-  gene <- vector(mode = "character")
-  snp <- vector(mode = "numeric")
-  chr <- vector(mode = "numeric")
-  start <- vector(mode = "numeric")
-  end <- vector(mode = "numeric")
+
+  r1 <- vector(mode = "numeric")
+  r2 <- vector(mode = "numeric")
+
+  for (i in 1:nrow(sig.snp)){
+    if (sig.snp[i,][["snp_location"]]>=distance){
+      r <- c(sig.snp[i,][["snp_location"]]-distance, sig.snp[i,][["snp_location"]]+distance)
+    }else{
+      r <- c(sig.snp[i,][["snp_location"]], sig.snp[i,][["snp_location"]]+distance)
+    }
+    r1 <- append(r1,r[1])
+    r2 <- append(r2,r[2])
+  }
+  sig.snp$r1 <- r1
+  sig.snp$r2 <- r2
+
+  ## search significant genes
+  findgene <- function(i){
+    snp_gene <-  gff[gff$gene_start >= sig.snp$r1[i] & gff$gene_end <= sig.snp$r2[i] & gff$gff.chrom==sig.snp$snp.chrom[i], ]
+    if (nrow(snp_gene)==0) {
+      return(NULL)}else{
+        snp_gene$snp_location <-  sig.snp$snp_location[i]
+        snp_gene$p_value <- sig.snp$pvalue[i]
+        return(snp_gene)
+      }
+  }
+
+  genes_data <- future.apply::future_lapply(seq(1,nrow(sig.snp)),findgene)
+  gene_snp <- do.call(rbind, genes_data)
+
+
 
   if(!file.save) {
     if(verbose) {
@@ -110,29 +136,12 @@ get_gene_from_snp <- function(
     if(verbose) {
       cat(paste("The distance you choose is ", distance, "bp!", sep = ""),sep = "\n")
       cat(paste("You have ", nrow(sig.snp), " significant SNPs and ", nrow(gff), " genes!", sep = ""),sep = "\n")
-      cat("Now we will extract the genes in the significant regions! This will need some time, please wait for severals minutes! ...", sep = "\n")
+      cat("Now we will extract the genes in the significant regions! This will need some time, please wait! ...", sep = "\n")
     }
   }
-  for (i in 1:nrow(sig.snp)){
-    if (sig.snp[i,][[snp_location]]>=distance){
-      r <- c(sig.snp[i,][[snp_location]]-distance,sig.snp[i,][[snp_location]]+distance)
-    }else{
-      r <- c(sig.snp[i,][[snp_location]], sig.snp[i,][[snp_location]]+distance)
-    }
-    region <- seq(r[1],r[2])
-    for (j in 1:nrow(gff)){
-      if(gff[j,][[gff.chrom]]==sig.snp[i,][[snp.chrom]]){
-        if(gff[j,][[gene_start]] %in% region | gff[j,][[gene_end]] %in% region){
-          gene <- append(gene, as.character(gff[j,][[geneid]]))
-          snp <- append(snp, sig.snp[i,][[snp_location]])
-          chr <- append(chr, gff[j,][[gff.chrom]])
-          start <- append(start, gff[j,][[gene_start]])
-          end <- append(end, gff[j,][[gene_end]])
-        }
-      }
-    }
-  }
-  gene_snp <- tibble::tibble(chrom=chr, geneid=gene, gene_start=start, gene_end=end, snp_location=snp)
+
+
+
   if(file.save){
     if(file.type=="csv"){
       write.csv(gene_snp,file = paste("genes_in_sig_regions","(",distance,"bp)",".csv"), row.names = FALSE, quote = FALSE)
