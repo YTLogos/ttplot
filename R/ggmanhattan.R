@@ -167,17 +167,3 @@ ggmanhattan <- function(
   if(file.output) dev.off()
   if(file.output & verbose) cat(paste("The Manhattan Plot is stored in: ", getwd(), sep = ""), sep = "\n")
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
